@@ -41,9 +41,13 @@ class Vehicle():
         print(f'La velocità corrente è {self.speed}')
     
 
-gigio = Vehicle("Off Road", "Toy2", 2008, 24)
-gigio.__str__()
-gigio.speed_up()
-gigio.speed_up()
-gigio.brake()
-gigio.get_speed()
+#gigio = Vehicle("Off Road", "Toy2", 2008, 24)
+#gigio.__str__()
+#gigio.speed_up()
+#gigio.speed_up()
+#gigio.brake()
+#gigio.get_speed()
+
+class CSVfile():
+
+    
