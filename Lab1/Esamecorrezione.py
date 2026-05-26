@@ -11,8 +11,8 @@ class CSVTimeSeriesFile():
         self.name = name # Nome del file da aprire ( o path )
         try:
             open(self.name, "r")
-        except:
-            raise ExamException("Il nome del file è errato o il file non è presente")
+        except Exception as e:
+            raise ExamException(f"Il nome del file è errato o il file non è presente con errore {e}")
         
     def get_data(self):
         superlist = [] # Creo una lista in cui saranno contenute tutte le coppie di del dataset
@@ -58,12 +58,12 @@ def compute_annual_mean(time_series, first_year, last_year):
             if current > last_year: # Mi assicuro che non esegua più alcuna aggiunta in caso il si vada oltre all'ultimo anno in input
                 break
         return consumption_dict
-    except:
-        raise ExamException("Inserire valori interi o validi") 
+    except Exception as e:
+        raise ExamException(f"Inserire valori interi o validi, errore {e}") 
     
     # L'eccezione scatta se qualsiasi delle operazioni nel blocco precedente non si può eseguire, comprendendo anche la somma o la divisione di variabili errate
 
 
-gigio = CSVTimeSeriesFile("electricity.csv")
+gigio = CSVTimeSeriesFile("ellectricity.csv")
 gigio_list = gigio.get_data()
 print(compute_annual_mean(gigio_list, 2019, 2022))
